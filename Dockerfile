@@ -19,6 +19,7 @@ COPY --from=build --chown=node:node /app/build ./build
 COPY --from=build --chown=node:node /app/node_modules ./node_modules
 COPY --from=build --chown=node:node /app/package.json ./
 
-USER node          # don't run as root (good-practice check)
+# Don't run as root (good-practice check)
+USER node
 EXPOSE 3000
 CMD ["node", "build"]
